@@ -27,7 +27,7 @@ private struct TestData {
 class TestAvatarViewController: NSViewController {
 
 	// Create various sizes of avatar views from our testa data
-	let displayedAvatarViews: [[AvatarView]] = avatarViews(sizes: [20, 25, 35, 50, 70],
+	let displayedAvatarViews: [[MSFAvatar]] = avatarViews(sizes: [.xsmall, .small, .medium, .large, .xlarge, .xxlarge],
 														   identities: [
 															TestData.annie,
 															TestData.maor,
@@ -40,7 +40,10 @@ class TestAvatarViewController: NSViewController {
 
 		// Create a vertical stack view for each of our test identities
 		let stackViews = displayedAvatarViews.map { avatarViews -> NSStackView in
-			let stackView = NSStackView(views: avatarViews)
+			let nativeView = avatarViews.map { (avatarView) -> NSView in
+				avatarView.view
+			}
+			let stackView = NSStackView(views: nativeView)
 			stackView.orientation = .vertical
 			let spacing = stackView.spacing
 			stackView.edgeInsets = NSEdgeInsets(top: spacing, left: 0, bottom: spacing, right: 0)
@@ -67,15 +70,17 @@ class TestAvatarViewController: NSViewController {
 	}
 
 	/// Create a single avatar view from a given size and test identity
-	private static func avatarView(size: CGFloat, identity: TestIdentity) -> AvatarView {
-		return AvatarView(avatarSize: size,
-						  contactName: identity.name,
-						  contactEmail: identity.email,
-						  contactImage: identity.image)
+	private static func avatarView(size: MSFAvatarSize, identity: TestIdentity) -> MSFAvatar {
+		let avatar = MSFAvatar(style: .default, size: size)
+		avatar.state.isRingVisible = true
+		avatar.state.primaryText = identity.name
+		avatar.state.secondaryText = identity.email
+		avatar.state.image = identity.image
+		return avatar
 	}
 
 	/// For each identity passed in, return an array of avatar views in the given sizes
-	private static func avatarViews(sizes: [CGFloat], identities: [TestIdentity]) -> [[AvatarView]] {
+	private static func avatarViews(sizes: [MSFAvatarSize], identities: [TestIdentity]) -> [[MSFAvatar]] {
 		return identities.map { identity in
 			sizes.map { avatarView(size: $0, identity: identity) }
 		}
@@ -84,20 +89,20 @@ class TestAvatarViewController: NSViewController {
 	// test setting an image on an existing avatar view
 	@objc private func updateAvatarImages() {
 		let maleImage = NSImage(named: TestAvatarViewController.personaMale)
-		displayedAvatarViews[TestAvatarViewController.testDataIndexForImages].forEach { $0.contactImage = maleImage }
+		displayedAvatarViews[TestAvatarViewController.testDataIndexForImages].forEach { $0.state.image = maleImage }
 	}
 
 	// test setting custom avatar background color
 	@objc private func updateAvatarBackgroundColors() {
-		displayedAvatarViews[TestAvatarViewController.testDataIndexForBackroundColor].forEach { $0.avatarBackgroundColor = .systemBlue }
+		displayedAvatarViews[TestAvatarViewController.testDataIndexForBackroundColor].forEach { $0.state.backgroundColor = .systemBlue }
 	}
 
 	// test repurposing an avatar view
 	@objc private func reuseAvatarView() {
 		displayedAvatarViews[TestAvatarViewController.testDataIndexForReuse].forEach {
-			$0.contactName = "Ted Randall"
-			$0.contactEmail = "ted.randall@example.com"
-			$0.avatarSize = 25
+			$0.state.primaryText = "Ted Randall"
+			$0.state.secondaryText = "ted.randall@example.com"
+			$0.setSize(size: .large)
 		}
 	}
 

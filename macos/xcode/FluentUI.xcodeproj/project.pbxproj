@@ -10,9 +10,11 @@
 		2F6759B8251E4C2600210B3C /* SimpleObjCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6759B7251E4C2600210B3C /* SimpleObjCTest.m */; };
 		3F2506DB25F2C7A90049ED54 /* DynamicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2506D825F2C7A90049ED54 /* DynamicColor.swift */; };
 		3F2506DC25F2C7A90049ED54 /* Apperance+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2506DA25F2C7A90049ED54 /* Apperance+Theme.swift */; };
+		3F7BC619260A71A2007EF875 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7BC616260A71A2007EF875 /* Avatar.swift */; };
+		3F7BC61A260A71A2007EF875 /* AvatarTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7BC617260A71A2007EF875 /* AvatarTokens.swift */; };
+		3F7BC63C260BD0CF007EF875 /* InitialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7BC63B260BD0CF007EF875 /* InitialsView.swift */; };
 		53BCB0DB253A72AD00620960 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB0DA253A72AD00620960 /* Colors.swift */; };
 		53BCB0E2253A72E000620960 /* FluentUIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB0E1253A72E000620960 /* FluentUIResources.swift */; };
-		53BCB0ED253A75BB00620960 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB0EC253A75BB00620960 /* AvatarView.swift */; };
 		53BCB0F4253A75CF00620960 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB0F3253A75CF00620960 /* Button.swift */; };
 		53BCB0FB253A75E400620960 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB0FA253A75E400620960 /* Link.swift */; };
 		53BCB102253A75EF00620960 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BCB101253A75EF00620960 /* Separator.swift */; };
@@ -119,9 +121,11 @@
 		2F6759B7251E4C2600210B3C /* SimpleObjCTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleObjCTest.m; sourceTree = "<group>"; };
 		3F2506D825F2C7A90049ED54 /* DynamicColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicColor.swift; sourceTree = "<group>"; };
 		3F2506DA25F2C7A90049ED54 /* Apperance+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Apperance+Theme.swift"; sourceTree = "<group>"; };
+		3F7BC616260A71A2007EF875 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		3F7BC617260A71A2007EF875 /* AvatarTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTokens.swift; sourceTree = "<group>"; };
+		3F7BC63B260BD0CF007EF875 /* InitialsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialsView.swift; sourceTree = "<group>"; };
 		53BCB0DA253A72AD00620960 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		53BCB0E1253A72E000620960 /* FluentUIResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluentUIResources.swift; sourceTree = "<group>"; };
-		53BCB0EC253A75BB00620960 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		53BCB0F3253A75CF00620960 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		53BCB0FA253A75E400620960 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		53BCB101253A75EF00620960 /* Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
@@ -322,7 +326,9 @@
 		53BCB0E8253A74DF00620960 /* AvatarView */ = {
 			isa = PBXGroup;
 			children = (
-				53BCB0EC253A75BB00620960 /* AvatarView.swift */,
+				3F7BC63B260BD0CF007EF875 /* InitialsView.swift */,
+				3F7BC616260A71A2007EF875 /* Avatar.swift */,
+				3F7BC617260A71A2007EF875 /* AvatarTokens.swift */,
 			);
 			path = AvatarView;
 			sourceTree = "<group>";
@@ -829,15 +835,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				804626C622D7908100AFA48C /* CalendarDayButton.swift in Sources */,
+				3F7BC63C260BD0CF007EF875 /* InitialsView.swift in Sources */,
 				53BCB0DB253A72AD00620960 /* Colors.swift in Sources */,
 				53BCB102253A75EF00620960 /* Separator.swift in Sources */,
 				80117A8322E0E63E00813D59 /* CalendarHeaderView.swift in Sources */,
-				53BCB0ED253A75BB00620960 /* AvatarView.swift in Sources */,
+				3F7BC619260A71A2007EF875 /* Avatar.swift in Sources */,
 				3F2506DC25F2C7A90049ED54 /* Apperance+Theme.swift in Sources */,
 				53BCB0FB253A75E400620960 /* Link.swift in Sources */,
 				80117A7F22DCDF6F00813D59 /* CalendarView.swift in Sources */,
 				53BCB0E2253A72E000620960 /* FluentUIResources.swift in Sources */,
 				8061BF7E22EF936800F2D245 /* DatePickerView.swift in Sources */,
+				3F7BC61A260A71A2007EF875 /* AvatarTokens.swift in Sources */,
 				3F2506DB25F2C7A90049ED54 /* DynamicColor.swift in Sources */,
 				8061BF7F22EF936800F2D245 /* DatePickerController.swift in Sources */,
 				53BCB0F4253A75CF00620960 /* Button.swift in Sources */,
@@ -1013,6 +1021,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F41CC732447B66A0040B851 /* FluentUI_resources.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Debug;
 		};
@@ -1020,6 +1029,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F41CC732447B66A0040B851 /* FluentUI_resources.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Release;
 		};
@@ -1027,6 +1037,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F69C7B22295FABD009F69C0 /* FluentUI_testapp.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Debug;
 		};
@@ -1034,6 +1045,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F69C7B22295FABD009F69C0 /* FluentUI_testapp.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Release;
 		};
@@ -1042,6 +1054,7 @@
 			baseConfigurationReference = E61C96D02295FA360006561F /* FluentUI_debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Debug;
 		};
@@ -1050,6 +1063,7 @@
 			baseConfigurationReference = E61C96D12295FA4E0006561F /* FluentUI_release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Release;
 		};
@@ -1057,6 +1071,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E61C96CE2295ED8A0006561F /* FluentUI_framework.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Debug;
 		};
@@ -1064,6 +1079,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E61C96CE2295ED8A0006561F /* FluentUI_framework.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Release;
 		};
@@ -1071,6 +1087,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F931A6C22BD593300311764 /* FluentUI_unittest.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Debug;
 		};
@@ -1078,6 +1095,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F931A6C22BD593300311764 /* FluentUI_unittest.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Release;
 		};
@@ -1085,6 +1103,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6A92D4D24BEAA0200562BCA /* FluentUI_testviewcontrollers.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Debug;
 		};
@@ -1092,6 +1111,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6A92D4D24BEAA0200562BCA /* FluentUI_testviewcontrollers.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 			};
 			name = Release;
 		};
