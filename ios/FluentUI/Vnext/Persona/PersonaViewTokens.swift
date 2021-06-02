@@ -28,6 +28,7 @@ class MSFPersonaViewTokens: MSFCellBaseTokens {
         labelColor = listCellAP.labelColor
         leadingViewColor = listCellAP.leadingViewColor
         sublabelColor = personaViewAP.sublabelColor
+        footnoteColor = personaViewAP.footnoteColor
         trailingItemForegroundColor = listCellAP.trailingItemForegroundColor
 
         backgroundColor = listCellAP.backgroundColor.rest

@@ -84,6 +84,11 @@ extension FluentUIStyle {
 			return mainProxy().Icon.size.small
 		}
 
+		// MARK: - footnoteColor 
+		open var footnoteColor: UIColor {
+			return mainProxy().Colors.Foreground.neutral3
+		}
+
 		// MARK: - footnoteFont 
 		open var footnoteFont: UIFont {
 			return mainProxy().Typography.caption1

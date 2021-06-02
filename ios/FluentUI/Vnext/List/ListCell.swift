@@ -245,7 +245,7 @@ struct MSFListCellView: View {
                             if !state.footnote.isEmpty {
                                 Text(state.footnote)
                                     .scalableFont(font: tokens.footnoteFont)
-                                    .foregroundColor(Color(tokens.sublabelColor))
+                                    .foregroundColor(Color(tokens.footnoteColor))
                                     .lineLimit(state.footnoteLineLimit == 0 ? nil : state.footnoteLineLimit)
                             }
                             if let footnoteTrailingAccessoryView = state.footnoteTrailingAccessoryView {

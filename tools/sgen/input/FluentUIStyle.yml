@@ -291,6 +291,7 @@ AP_MSFListCellTokens:
   disclosureInterspace: $Spacing.xxSmall
   disclosureSize: $Icon.size.small
   footnoteFont: $Typography.caption1
+  footnoteColor: $Colors.Foreground.neutral3
   horizontalCellPadding: $Spacing.medium
   iconInterspace: $Spacing.medium
   labelAccessoryInterspace: $Spacing.xSmall
@@ -312,6 +313,7 @@ AP_MSFPersonaViewTokens:
   labelAccessorySize: $Icon.size.xSmall
   labelFont: $Typography.headline
   sublabelColor: $Colors.Foreground.neutral1
+  footnoteColor: $Colors.Foreground.neutral1
 
 AP_MSFHeaderFooterTokens:
   backgroundColor: $Colors.Background.neutral1

@@ -69,6 +69,7 @@ class MSFCellBaseTokens: MSFTokensBase, ObservableObject {
     @Published public var labelColor: UIColor!
     @Published public var leadingViewColor: UIColor!
     @Published public var sublabelColor: UIColor!
+    @Published public var footnoteColor: UIColor!
     @Published public var trailingItemForegroundColor: UIColor!
 
     @Published public var backgroundColor: UIColor!
@@ -126,6 +127,7 @@ class MSFListCellTokens: MSFCellBaseTokens {
         labelColor = appearanceProxy.labelColor
         leadingViewColor = appearanceProxy.leadingViewColor
         sublabelColor = appearanceProxy.sublabelColor
+        footnoteColor = appearanceProxy.footnoteColor
         trailingItemForegroundColor = appearanceProxy.trailingItemForegroundColor
 
         backgroundColor = appearanceProxy.backgroundColor.rest

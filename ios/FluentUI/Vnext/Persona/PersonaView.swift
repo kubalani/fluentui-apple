@@ -157,6 +157,17 @@ class MSFPersonaViewStateImpl: MSFListCellState, PersonaViewState {
             subtitle = newValue ?? ""
         }
     }
+    
+    var footnoteText: String? {
+        get {
+            return avatarState.secondaryText
+        }
+
+        set {
+            avatarState.secondaryText = newValue
+            footnote = newValue ?? ""
+        }
+    }
 
     var size: MSFAvatarSize {
         get {

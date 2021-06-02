@@ -105,6 +105,7 @@ import SwiftUI
     var primaryText: String? { get set }
     var ringColor: UIColor? { get set }
     var secondaryText: String? { get set }
+    var footnoteText: String? { get set }
     var size: MSFAvatarSize { get set }
     var style: MSFAvatarStyle { get set }
 }
@@ -124,6 +125,7 @@ class MSFAvatarStateImpl: NSObject, ObservableObject, MSFAvatarState {
     @Published var primaryText: String?
     @Published var ringColor: UIColor?
     @Published var secondaryText: String?
+    @Published var footnoteText: String?
 
     var size: MSFAvatarSize {
         get {

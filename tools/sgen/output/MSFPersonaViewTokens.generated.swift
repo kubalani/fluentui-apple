@@ -15,6 +15,11 @@ extension FluentUIStyle {
 			self.mainProxy = proxy
 		}
 
+		// MARK: - footnoteColor 
+		open var footnoteColor: UIColor {
+			return mainProxy().Colors.Foreground.neutral1
+		}
+
 		// MARK: - footnoteFont 
 		open var footnoteFont: UIFont {
 			return mainProxy().Typography.footnote
