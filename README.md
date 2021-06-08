@@ -44,7 +44,7 @@ If you are using Apple Silicon M1 machine then you need to install `ffi` in addi
 sudo arch -x86_64 gem install ffi
 ```
 
-To execute any pod command specific the architecture of the machine explicity
+To execute any pod command you need to specify the architecture of the machine explicity
 
 ```bash
 arch -x86_64 pod lib lint
