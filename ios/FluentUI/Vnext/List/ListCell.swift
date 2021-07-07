@@ -169,9 +169,61 @@ struct MSFListCellView: View {
     @ObservedObject var tokens: MSFCellBaseTokens
     @ObservedObject var state: MSFListCellState
 
+    // Accessory Views
+    private var titleLeadingView: ListCellContentView<AnyView?>?
+    private var titleTrailingView: ListCellContentView<AnyView?>?
+    private var subtitleLeadingView: ListCellContentView<AnyView?>?
+    private var subtitleTrailingView: ListCellContentView<AnyView?>?
+    private var footnoteLeadingView: ListCellContentView<AnyView?>?
+    private var footnoteTrailingView: ListCellContentView<AnyView?>?
+
+    // Allows client to override cell color, if nil then defaults to token values
+    var tintColor: UIColor?
+
     init(state: MSFListCellState) {
         self.state = state
         self.tokens = state.tokens
+
+        // Title accessory view
+        self.titleLeadingView = ListCellContentView(size: CGSize(width: tokens.labelAccessorySize, height: tokens.labelAccessorySize),
+                                                    padding: tokens.labelAccessoryInterspace,
+                                                    content: {
+                                                        state.titleLeadingAccessoryView
+                                                    })
+        self.titleLeadingView = ListCellContentView(size: CGSize(width: tokens.labelAccessorySize, height: tokens.labelAccessorySize),
+                                                    padding: tokens.labelAccessoryInterspace,
+                                                    content: {
+                                                        state.titleLeadingAccessoryView
+                                                    })
+
+        // Subtitle accessory view
+        self.subtitleLeadingView = ListCellContentView(size: CGSize(width: tokens.sublabelAccessorySize, height: tokens.sublabelAccessorySize),
+                                                       padding: tokens.labelAccessoryInterspace,
+                                                       content: {
+                                                        state.subtitleLeadingAccessoryView
+                                                       })
+        self.subtitleLeadingView = ListCellContentView(size: CGSize(width: tokens.sublabelAccessorySize, height: tokens.sublabelAccessorySize),
+                                                       padding: tokens.labelAccessoryInterspace,
+                                                       content: {
+                                                        state.subtitleLeadingAccessoryView
+                                                       })
+
+        // Footonote accessory view
+        self.footnoteLeadingView = ListCellContentView(size: CGSize(width: tokens.labelAccessorySize, height: tokens.labelAccessorySize),
+                                                       padding: tokens.labelAccessoryInterspace,
+                                                       content: {
+                                                        state.footnoteLeadingAccessoryView
+                                                       })
+        self.footnoteTrailingView = ListCellContentView(size: CGSize(width: tokens.labelAccessorySize, height: tokens.labelAccessorySize),
+                                                        padding: tokens.labelAccessoryInterspace,
+                                                        content: {
+                                                            state.footnoteTrailingAccessoryView
+                                                        })
+    }
+
+    init(state: MSFListCellState, tintColor: UIColor?) {
+        self.init(state: state)
+        self.tintColor = tintColor
     }
 
     var body: some View {
@@ -186,11 +238,6 @@ struct MSFListCellView: View {
                 }
             }, label: {
                 HStack(spacing: 0) {
-                    let hasTitle = !state.title.isEmpty
-                    let labelAccessoryInterspace = tokens.labelAccessoryInterspace
-                    let labelAccessorySize = tokens.labelAccessorySize
-                    let sublabelAccessorySize = tokens.sublabelAccessorySize
-
                     if let leadingView = state.leadingView {
                         leadingView
                             .frame(width: tokens.leadingViewSize, height: tokens.leadingViewSize)
@@ -198,62 +245,30 @@ struct MSFListCellView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 0) {
-                        HStack(spacing: 0) {
-                            if let titleLeadingAccessoryView = state.titleLeadingAccessoryView {
-                                titleLeadingAccessoryView
-                                    .frame(width: labelAccessorySize, height: labelAccessorySize)
-                                    .padding(.trailing, labelAccessoryInterspace)
-                            }
-                            if hasTitle {
-                                Text(state.title)
-                                    .scalableFont(font: tokens.labelFont)
-                                    .foregroundColor(Color(tokens.labelColor))
-                                    .lineLimit(state.titleLineLimit == 0 ? nil : state.titleLineLimit)
-                            }
-                            if let titleTrailingAccessoryView = state.titleTrailingAccessoryView {
-                                titleTrailingAccessoryView
-                                    .frame(width: labelAccessorySize, height: labelAccessorySize)
-                                    .padding(.leading, labelAccessoryInterspace)
-                            }
-                        }
 
-                        HStack(spacing: 0) {
-                            if let subtitleLeadingAccessoryView = state.subtitleLeadingAccessoryView {
-                                subtitleLeadingAccessoryView
-                                    .frame(width: sublabelAccessorySize, height: sublabelAccessorySize)
-                                    .padding(.trailing, labelAccessoryInterspace)
-                            }
-                            if !state.subtitle.isEmpty {
-                                Text(state.subtitle)
-                                    .scalableFont(font: state.footnote.isEmpty ? tokens.footnoteFont : tokens.sublabelFont)
-                                    .foregroundColor(Color(tokens.sublabelColor))
-                                    .lineLimit(state.subtitleLineLimit == 0 ? nil : state.subtitleLineLimit)
-                            }
-                            if let subtitleTrailingAccessoryView = state.subtitleTrailingAccessoryView {
-                                subtitleTrailingAccessoryView
-                                    .frame(width: sublabelAccessorySize, height: sublabelAccessorySize)
-                                    .padding(.leading, labelAccessoryInterspace)
-                            }
-                        }
+                        // Title view
+                        ListCellAccessoryView<ListCellContentView<AnyView?>> {
+                            TupleView((titleLeadingView, titleTrailingView))
+                        }.text(ListCellText(title: state.title,
+                                            font: tokens.labelFont,
+                                            foregroundColor: tintColor ?? tokens.labelColor,
+                                            lineLimit: state.titleLineLimit == 0 ? nil : state.titleLineLimit))
 
-                        HStack(spacing: 0) {
-                            if let footnoteLeadingAccessoryView = state.footnoteLeadingAccessoryView {
-                                footnoteLeadingAccessoryView
-                                    .frame(width: labelAccessorySize, height: labelAccessorySize)
-                                    .padding(.trailing, labelAccessoryInterspace)
-                            }
-                            if !state.footnote.isEmpty {
-                                Text(state.footnote)
-                                    .scalableFont(font: tokens.footnoteFont)
-                                    .foregroundColor(Color(tokens.sublabelColor))
-                                    .lineLimit(state.footnoteLineLimit == 0 ? nil : state.footnoteLineLimit)
-                            }
-                            if let footnoteTrailingAccessoryView = state.footnoteTrailingAccessoryView {
-                                footnoteTrailingAccessoryView
-                                    .frame(width: labelAccessorySize, height: labelAccessorySize)
-                                    .padding(.leading, labelAccessoryInterspace)
-                            }
-                        }
+                        // Subtitle view
+                        ListCellAccessoryView<ListCellContentView<AnyView?>> {
+                            TupleView((subtitleLeadingView, subtitleTrailingView))
+                        }.text(ListCellText(title: state.subtitle,
+                                            font: state.footnote.isEmpty ? tokens.footnoteFont : tokens.sublabelFont,
+                                            foregroundColor: tintColor ?? tokens.sublabelColor,
+                                            lineLimit: state.subtitleLineLimit == 0 ? nil : state.subtitleLineLimit))
+
+                        // Footnote view
+                        ListCellAccessoryView<ListCellContentView<AnyView?>> {
+                            TupleView((footnoteLeadingView, footnoteTrailingView))
+                        }.text(ListCellText(title: state.footnote,
+                                            font: tokens.footnoteFont,
+                                            foregroundColor: tintColor ?? tokens.sublabelColor,
+                                            lineLimit: state.footnoteLineLimit == 0 ? nil : state.footnoteLineLimit))
                     }
 
                     Spacer()
@@ -270,7 +285,7 @@ struct MSFListCellView: View {
                             let disclosureSize = tokens.disclosureSize
                             Image(uiImage: accessoryIcon)
                                 .resizable()
-                                .foregroundColor(Color(isDisclosure ? tokens.disclosureIconForegroundColor : tokens.trailingItemForegroundColor))
+                                .foregroundColor(Color(isDisclosure ? tokens.disclosureIconForegroundColor : (tintColor ?? tokens.trailingItemForegroundColor)))
                                 .frame(width: isDisclosure ? disclosureSize : tokens.trailingItemSize, height: isDisclosure ? disclosureSize : tokens.trailingItemSize)
                                 .padding(.leading, isDisclosure ? tokens.disclosureInterspace : tokens.iconInterspace)
                         }
@@ -302,6 +317,151 @@ struct MSFListCellView: View {
     }
 }
 
+extension MSFListCellView {
+    /// Modifier to update tint color for accessory views
+    /// - Parameter `color`:  optional text color for override
+    /// - Returns: `MSFListCellView`
+    func tintColor(_ color: UIColor?) -> MSFListCellView {
+        return MSFListCellView(state: state, tintColor: color)
+    }
+
+    /// Modifier to show checkmark
+    /// - Parameter `enabled`:  if set then checkmark is enabled
+    /// - Returns: `MSFListCellView`
+    func checkMark(_ enabled: Bool) -> MSFListCellView {
+        if enabled {
+            state.accessoryType = .checkmark
+        } else {
+            state.accessoryType = .none
+        }
+        return MSFListCellView(state: state)
+    }
+}
+
+struct ListCellContentView<Content: View>: CGView {
+
+    var size: CGSize
+
+    var padding: CGFloat
+
+    var content: () -> Content
+
+    var body: some View {
+        content()
+    }
+
+    init(size: CGSize, padding: CGFloat, @ViewBuilder content: @escaping () -> Content) {
+        self.size = size
+        self.padding = padding
+        self.content = content
+    }
+}
+
+struct ListCellText: UIText {
+
+    var title: String
+
+    var font: UIFont
+
+    var foregroundColor: UIColor
+
+    var lineLimit: Int?
+
+    init(title: String, font: UIFont, foregroundColor: UIColor, lineLimit: Int?) {
+        self.title = title
+        self.font = font
+        self.foregroundColor = foregroundColor
+        self.lineLimit = lineLimit
+    }
+}
+
+// Represents a UIKit View
+protocol CGView: View {
+
+    var size: CGSize { get set }
+
+    var padding: CGFloat { get set }
+}
+
+// Represents a UiKit Text attributes
+protocol UIText {
+
+    var title: String { get set }
+
+    var font: UIFont { get set }
+
+    var foregroundColor: UIColor { get set }
+
+    var lineLimit: Int? { get set }
+}
+
+// MARK: - Accessory View
+
+struct ListCellAccessoryView<Content: CGView>: View {
+
+    var leadingView: Content?
+
+    var trailingView: Content?
+
+    let spacing: CGFloat = 0
+
+    var text: UIText?
+
+    typealias LeadingView<Content> = Content?
+
+    typealias TrailingView<Content> = Content?
+
+    var body: some View {
+        HStack(spacing: spacing) {
+            if let leadingView = leadingView {
+                leadingView
+                    .frame(width: leadingView.size.width, height: leadingView.size.height)
+                    .padding(.trailing, leadingView.padding)
+            }
+            if let text = text, !text.title.isEmpty {
+                Text(text.title)
+                    .scalableFont(font: text.font)
+                    .foregroundColor(Color(text.foregroundColor))
+                    .lineLimit(text.lineLimit == 0 ? nil : text.lineLimit)
+            }
+            if let trailingView = trailingView {
+                trailingView
+                    .frame(width: trailingView.size.width, height: trailingView.size.height)
+                    .padding(.leading, trailingView.padding)
+            }
+        }
+    }
+
+    init(text: UIText?, @ViewBuilder _ contentView: @escaping () -> TupleView<(Content?, Content?)>) {
+        let (leadingAccessoryView, trailingAccessoryView) = contentView().value
+        self.text = text
+        self.leadingView = leadingAccessoryView
+        self.trailingView = trailingAccessoryView
+    }
+
+    init(@ViewBuilder _ contentView: @escaping () -> TupleView<(Content?, Content?)>) {
+        let (leadingAccessoryView, trailingAccessoryView) = contentView().value
+        self.leadingView = leadingAccessoryView
+        self.trailingView = trailingAccessoryView
+    }
+}
+
+// MARK: - View Modifier
+
+private extension ListCellAccessoryView {
+
+    /// Modifier to update optional text within the accessory view.
+    /// - Parameter `text`:  optional text with attributes for rendering
+    /// - Returns: `ListCellAccessoryView`
+    func text(_ text: UIText?) -> ListCellAccessoryView {
+        return ListCellAccessoryView(text: text) {
+            TupleView((leadingView, trailingView))
+        }
+    }
+}
+
+// MARK: - Style
+
 struct ListCellButtonStyle: ButtonStyle {
     let tokens: MSFCellBaseTokens
     let state: MSFListCellState
@@ -311,7 +471,7 @@ struct ListCellButtonStyle: ButtonStyle {
         switch state.layoutType {
         case .automatic:
             height = !state.footnote.isEmpty ? tokens.cellHeightThreeLines :
-                    (!state.subtitle.isEmpty ? tokens.cellHeightTwoLines : tokens.cellHeightOneLine)
+                (!state.subtitle.isEmpty ? tokens.cellHeightTwoLines : tokens.cellHeightOneLine)
         case .oneLine:
             height = tokens.cellHeightOneLine
         case .twoLines:

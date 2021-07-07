@@ -359,3 +359,7 @@ MSFPrimaryHeaderTokens extends MSFHeaderFooterTokens:
   textColor: $Colors.Foreground.neutral1
   textFont: $Typography.headline
   topPadding: $Spacing.medium
+
+AP_MSFSelectableListTokens extends AP_MSFListTokens:
+  selectionColor: $Colors.Foreground.brandHover
+  disabledColor: $Colors.Background.neutralDisabled

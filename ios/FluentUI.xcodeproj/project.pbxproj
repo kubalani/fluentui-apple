@@ -20,6 +20,12 @@
 		22010B702523CB2D00FF1F10 /* ActivityViewAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22010B6F2523CB2D00FF1F10 /* ActivityViewAnimating.swift */; };
 		22EABB1A2509AAD100C4BE72 /* IndeterminateProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EABB192509AAD100C4BE72 /* IndeterminateProgressBarView.swift */; };
 		3F40E8EE2601CD4500C43730 /* MSFDrawerTokens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40E8ED2601CD4400C43730 /* MSFDrawerTokens.generated.swift */; };
+		3F4C0F982682359A00A0C032 /* SelectableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C0F972682359A00A0C032 /* SelectableList.swift */; };
+		3F4C0F992682359A00A0C032 /* SelectableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C0F972682359A00A0C032 /* SelectableList.swift */; };
+		3F639CDD268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F639CDC268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift */; };
+		3F639CDE268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F639CDC268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift */; };
+		3F639CE0268E60CA00F8A021 /* SelectableListTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F639CDF268E60CA00F8A021 /* SelectableListTokens.swift */; };
+		3F639CE1268E60CA00F8A021 /* SelectableListTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F639CDF268E60CA00F8A021 /* SelectableListTokens.swift */; };
 		3F82A4B12604069100CAC666 /* MSFDrawerTokens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F40E8ED2601CD4400C43730 /* MSFDrawerTokens.generated.swift */; };
 		3FC2EDB325F9EA2D007AA0F8 /* MSFDrawerTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2EDB125F9EA2D007AA0F8 /* MSFDrawerTokens.swift */; };
 		3FC2EDB425F9EA2D007AA0F8 /* MSFDrawerTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2EDB125F9EA2D007AA0F8 /* MSFDrawerTokens.swift */; };
@@ -398,6 +404,9 @@
 		22010B6F2523CB2D00FF1F10 /* ActivityViewAnimating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewAnimating.swift; sourceTree = "<group>"; };
 		22EABB192509AAD100C4BE72 /* IndeterminateProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndeterminateProgressBarView.swift; sourceTree = "<group>"; };
 		3F40E8ED2601CD4400C43730 /* MSFDrawerTokens.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSFDrawerTokens.generated.swift; sourceTree = "<group>"; };
+		3F4C0F972682359A00A0C032 /* SelectableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableList.swift; sourceTree = "<group>"; };
+		3F639CDC268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSFSelectableListTokens.generated.swift; sourceTree = "<group>"; };
+		3F639CDF268E60CA00F8A021 /* SelectableListTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListTokens.swift; sourceTree = "<group>"; };
 		3FC2EDB125F9EA2D007AA0F8 /* MSFDrawerTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSFDrawerTokens.swift; sourceTree = "<group>"; };
 		497DC2D724185885008D86F8 /* PillButtonBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButtonBar.swift; sourceTree = "<group>"; };
 		497DC2D824185885008D86F8 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
@@ -860,12 +869,15 @@
 			children = (
 				536AEF3325F1EC0300A36206 /* HeaderFooterTokens.swift */,
 				536AEF3825F1EC0300A36206 /* List.swift */,
+				3F4C0F972682359A00A0C032 /* SelectableList.swift */,
 				536AEF3525F1EC0300A36206 /* ListCell.swift */,
 				536AEF3725F1EC0300A36206 /* ListHeaderFooter.swift */,
 				536AEF3425F1EC0300A36206 /* ListTokens.swift */,
+				3F639CDF268E60CA00F8A021 /* SelectableListTokens.swift */,
 				536AEF3A25F1EC0300A36206 /* MSFHeaderFooterTokens.generated.swift */,
 				536AEF3625F1EC0300A36206 /* MSFListCellTokens.generated.swift */,
 				536AEF3925F1EC0300A36206 /* MSFListTokens.generated.swift */,
+				3F639CDC268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1615,6 +1627,7 @@
 				536AEF6425F1EC0300A36206 /* List.swift in Sources */,
 				5314E14525F016860099271A /* CardPresentationController.swift in Sources */,
 				5314E0A925F010070099271A /* DrawerTransitionAnimator.swift in Sources */,
+				3F4C0F992682359A00A0C032 /* SelectableList.swift in Sources */,
 				5314E00425F00A300099271A /* ActivityViewAnimating.swift in Sources */,
 				536AEF7525F1ECA800A36206 /* ButtonLegacy.swift in Sources */,
 				5314E06525F00EFD0099271A /* CalendarViewDayMonthCell.swift in Sources */,
@@ -1629,6 +1642,7 @@
 				536AEF5A25F1EC0300A36206 /* HeaderFooterTokens.swift in Sources */,
 				5314E06125F00EFD0099271A /* CalendarViewDayCell.swift in Sources */,
 				929DD25A266ED3B600E8175E /* PersonaButtonCarousel.swift in Sources */,
+				3F639CE1268E60CA00F8A021 /* SelectableListTokens.swift in Sources */,
 				5314E12A25F016230099271A /* PillButton.swift in Sources */,
 				536AEF5C25F1EC0300A36206 /* ListTokens.swift in Sources */,
 				5314E0E525F012C00099271A /* NavigationBar.swift in Sources */,
@@ -1742,6 +1756,7 @@
 				8035CADE2638E435007B3FD1 /* CommandingSection.swift in Sources */,
 				5314E0E425F012C00099271A /* NavigationController.swift in Sources */,
 				5314E00D25F00B390099271A /* ActivityIndicatorView.swift in Sources */,
+				3F639CDE268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift in Sources */,
 				5314E03B25F00E3D0099271A /* BadgeStringExtractor.swift in Sources */,
 				5314E19825F019650099271A /* SideTabBar.swift in Sources */,
 				5314E11E25F015EA0099271A /* ContactCollectionViewCell.swift in Sources */,
@@ -1794,6 +1809,7 @@
 				536AEF6325F1EC0300A36206 /* List.swift in Sources */,
 				FC414E252588798000069E73 /* CommandBarButtonGroupView.swift in Sources */,
 				A5B87B02211E20B50038C37C /* UIScreen+Extension.swift in Sources */,
+				3F4C0F982682359A00A0C032 /* SelectableList.swift in Sources */,
 				FD77752D219E62E100033D58 /* DateTimePickerViewLayout.swift in Sources */,
 				536AEF7425F1ECA800A36206 /* ButtonLegacy.swift in Sources */,
 				927E34C72668350800998031 /* PersonaButtonTokens.swift in Sources */,
@@ -1808,6 +1824,7 @@
 				B4E782C12176AD5E00A7DFCE /* ActionsCell.swift in Sources */,
 				536AEF5925F1EC0300A36206 /* HeaderFooterTokens.swift in Sources */,
 				929DD259266ED3B600E8175E /* PersonaButtonCarousel.swift in Sources */,
+				3F639CE0268E60CA00F8A021 /* SelectableListTokens.swift in Sources */,
 				FD56FD962192754B0023C7EA /* DateTimePickerViewComponent.swift in Sources */,
 				FDFB8AF021361C9D0046850A /* CalendarViewDayTodayCell.swift in Sources */,
 				FD41C88422DD13230086F899 /* ContentScrollViewTraits.swift in Sources */,
@@ -1921,6 +1938,7 @@
 				8035CADD2638E435007B3FD1 /* CommandingSection.swift in Sources */,
 				FD5BBE3B214B2F44008964B4 /* Date+Extensions.swift in Sources */,
 				FD5BBE43214C73CE008964B4 /* EasyTapButton.swift in Sources */,
+				3F639CDD268E60AF00F8A021 /* MSFSelectableListTokens.generated.swift in Sources */,
 				B498141421E424920077B48D /* TableViewCell.swift in Sources */,
 				FD41C8B522DD3EA20086F899 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				FD77752B219E455A00033D58 /* AccessibilityContainerView.swift in Sources */,
